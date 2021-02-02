@@ -7,6 +7,7 @@ namespace VirtualPet
     public class Pet
     {
         public string Name { get; set; }
+        public string Species { get; set; }
 
         public string SetName(string name) 
         {
@@ -18,8 +19,15 @@ namespace VirtualPet
         {
             return Name;
         }
+
+        public string SetSpecies(string species)
+        {
+            Species = species;
+            return Species;
+        }
+
     }
 
-
+    
 
 }
