@@ -8,8 +8,8 @@ namespace VirtualPet
     {
         public string Name { get; set; }
         public string Species { get; set; }
-
         public int Hunger { get; set; }
+        public int Boredom {get; set;}
 
         public void SetName(string name)
         {
@@ -40,7 +40,11 @@ namespace VirtualPet
             Hunger = 50;
             return Hunger;
         }
-
+        public int GetBoredom()
+        {
+            Boredom = 60;
+            return Boredom;
+        }
     }
 
     
