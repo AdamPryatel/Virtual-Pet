@@ -9,21 +9,36 @@ namespace VirtualPet
         public string Name { get; set; }
         public string Species { get; set; }
 
-        public string SetName(string name) 
+        public int Hunger { get; set; }
+
+        public void SetName(string name)
         {
             Name = name;
-            //name = "Fluffy";
-            return Name;
         }
         public string GetName()
         {
             return Name;
         }
 
-        public string SetSpecies(string species)
+        public void SetSpecies(string species)
         {
             Species = species;
+        }
+
+        public string GetSpecies()
+        {
             return Species;
+        }
+
+        public void SetHunger(int hunger)
+        {
+            Hunger = hunger;
+        }
+
+        public int GetHunger()
+        {
+            Hunger = 50;
+            return Hunger;
         }
 
     }
