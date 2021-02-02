@@ -8,9 +8,9 @@ namespace VirtualPet
     {
         public string Name { get; set; }
         public string Species { get; set; }
-        public int Hunger { get; set; }
-        public int Boredom {get; set;}
-        public int Health { get; set; }
+        public int Hunger { get; set; } = 50;
+        public int Boredom { get; set; } = 60;
+        public int Health { get; set; } = 30;
 
         public void SetName(string name)
         {
@@ -38,24 +38,50 @@ namespace VirtualPet
 
         public int GetHunger()
         {
-            Hunger = 50;
+          //  Hunger = 50;
             return Hunger;
         }
         public int GetBoredom()
         {
-            Boredom = 60;
+        //    Boredom = 60;
             return Boredom;
         }
 
         public int GetHealth()
         {
-            Health = 30;
+          //  Health = 30;
             return Health;
         }
+        public void Feed()
+        {
+            Hunger -= 40;
+        }
+        public void SeeDoctor()
+        {
+            Health += 30;
+        }
+        
+
+        public void Play()
+        {
+            Hunger += 10;
+            Boredom -= 20;
+            Health += 10;
+        }
+
+        public void Tick()
+        {
+            Hunger += 5;
+            Boredom += 5;
+            Health -= 5;
+        }
+        
+        
+    } 
 
 
-    }
-
+    
+    
     
 
 }
