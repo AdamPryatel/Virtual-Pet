@@ -69,7 +69,29 @@ namespace VirtualPet.Tests
 
         }
 
+        [Fact]
+        public void Play_Should_Decrease_Oil_By_10()
+        {
+            testRobot.Play();
 
+            Assert.Equal(40, testRobot.GetOil());
+        }
+
+        [Fact]
+        public void Play_Should_Decrease_Boredom_By_20()
+        {
+            testRobot.Play();
+
+            Assert.Equal(40, testRobot.GetBoredom());
+        }
+
+        [Fact]
+        public void Play_Should_Decrease_Performace_By_10()
+        {
+            testRobot.Play();
+
+            Assert.Equal(20, testRobot.GetPerformance());
+        }
 
 
 

@@ -28,6 +28,11 @@ namespace VirtualPet
             Performance += 30;
         }
 
-
+        public override void Play()
+        {
+            Oil -= 10;
+            Boredom -= 20;
+            Performance -= 10;
+        }
     }
 }
