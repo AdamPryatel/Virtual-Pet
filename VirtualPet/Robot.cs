@@ -7,6 +7,7 @@ namespace VirtualPet
     public class Robot : Pet
     {
         public int Oil { get; set; } = 50;
+        public int Performance { get; set; } = 30;
 
         public int GetOil()
         {
@@ -16,5 +17,17 @@ namespace VirtualPet
         {
             Oil += 40;
         }
+
+        public int GetPerformance()
+        {
+            return Performance;
+        }
+
+        public void Maintenance()
+        {
+            Performance += 30;
+        }
+
+
     }
 }

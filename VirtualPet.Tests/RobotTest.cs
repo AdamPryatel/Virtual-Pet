@@ -43,5 +43,36 @@ namespace VirtualPet.Tests
             Assert.Equal(90, testRobot.GetOil());
         }
 
+
+        [Fact]
+        public void Robot_Should_Have_Performance()
+        {
+            testRobot.Performance = 100;
+
+            Assert.Equal(100, testRobot.Performance);
+        }
+
+        [Fact]
+        public void GetPerformance_Should_Return_Initial_Performance_Level_Of_30()
+        {
+            int testRobotPerformance = testRobot.GetPerformance();
+
+            Assert.Equal(30, testRobotPerformance);
+        }
+
+        [Fact]
+        public void Maintenance_Should_Increase_Performance_By_30()
+        {
+            testRobot.Maintenance();
+
+            Assert.Equal(60, testRobot.GetPerformance());
+
+        }
+
+
+
+
+
+
     }
 }
