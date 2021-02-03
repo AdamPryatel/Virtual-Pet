@@ -7,13 +7,17 @@ namespace VirtualPet.Tests
 {
     public class OrganicTest
     {
-        Organic myOrganic;
+        Organic testOrganic;
 
         public OrganicTest()
         {
-            myOrganic = new Organic();
+            testOrganic = new Organic();
         }
 
-
+        [Fact]
+        public void Organic_Constructor_Should_Instantiate_Organic_Object()
+        {
+            Assert.NotNull(testOrganic);
+        }
     }
 }
