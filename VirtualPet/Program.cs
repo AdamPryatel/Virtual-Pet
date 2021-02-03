@@ -43,7 +43,7 @@ namespace VirtualPet
                     
                         Console.WriteLine(pet.Name);
                         Console.WriteLine(pet.Species);
-                        Console.WriteLine(pet.Name + "'s boredom level is: " + petBoredom);//if/else over 50 = happy less than = bored
+                        Console.WriteLine(pet.Name + "'s boredom level is: " + petBoredom);         //if/else over 50 = happy less than = bored
                         Console.WriteLine(pet.Name + "'s health level is: " + petHealth);
                         Console.WriteLine(pet.Name + "'s hunger level is: " + petHunger);
 
