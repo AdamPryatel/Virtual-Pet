@@ -20,8 +20,5 @@ namespace VirtualPet.Tests
             Assert.NotNull(testOrganic);
         }
 
-
-
-
     }
 }

@@ -34,5 +34,14 @@ namespace VirtualPet
             Boredom -= 20;
             Performance -= 10;
         }
+
+
+        public override void Tick()
+        {
+            Oil -= 5;
+            Boredom += 5;
+            Performance -= 5;
+        }
+
     }
 }
