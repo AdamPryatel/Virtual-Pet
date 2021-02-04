@@ -9,6 +9,12 @@ namespace VirtualPet
         public int Oil { get; set; } = 50;
         public int Performance { get; set; } = 30;
 
+        public Robot()
+        {
+
+        }
+        
+        
         public int GetOil()
         {
             return Oil;

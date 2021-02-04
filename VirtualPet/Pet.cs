@@ -11,6 +11,7 @@ namespace VirtualPet
         public int Hunger { get; set; } = 50;
         public int Boredom { get; set; } = 60;
         public int Health { get; set; } = 30;
+        public bool IsRobot { get; set; }
 
         public void SetName(string name)
         {
@@ -75,8 +76,15 @@ namespace VirtualPet
             Boredom += 5;
             Health -= 5;
         }
-        
-        
+
+        public void SetIsRobot(bool isRobot)
+        {
+            IsRobot = isRobot;
+        }
+        public bool GetIsRobot()
+        {
+            return IsRobot;
+        }
     } 
 
 }

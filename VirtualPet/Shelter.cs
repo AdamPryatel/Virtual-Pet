@@ -9,7 +9,10 @@ namespace VirtualPet
 
         public List<Pet> ListofPets = new List<Pet>();
 
-        
+        public void AddPet(Pet pet)
+        {
+            ListofPets.Add(pet);
+        }
 
 
 
