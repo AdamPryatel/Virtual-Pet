@@ -186,34 +186,34 @@ namespace VirtualPet.Tests
             Assert.Equal(25, testPet.GetHealth());
         }
 
-        [Fact]
-        public void IsRobot_Should_Be_True()
-        {
-            //Arrange
+        //[Fact]
+        //public void IsRobot_Should_Be_True()
+        //{
+        //    //Arrange
 
 
-            //Act
-            testPet.IsRobot = true;
+        //    //Act
+        //    testPet.IsRobot = true;
 
-            //Assert
-            Assert.Equal(true, testPet.IsRobot);
+        //    //Assert
+        //    Assert.Equal(true, testPet.IsRobot);
         }
-        [Fact]
-        public void SetIsRobot_Should_Assign_IsRobot_Property()
-        {
-            testPet.SetIsRobot(true);
+        //[Fact]
+        //public void SetIsRobot_Should_Assign_IsRobot_Property()
+        //{
+        //    testPet.SetIsRobot(true);
 
-            Assert.Equal(true, testPet.IsRobot);
-        }
+        //    Assert.Equal(true, testPet.IsRobot);
+        //}
 
-        [Fact]
-        public void GetIsRobot_Should_Get_IsRobot_Value()
-        {
-            testPet.SetIsRobot(true);
+        //[Fact]
+        //public void GetIsRobot_Should_Get_IsRobot_Value()
+        //{
+        //    testPet.SetIsRobot(true);
 
-            bool testIsRobot = testPet.GetIsRobot();
+        //    bool testIsRobot = testPet.GetIsRobot();
 
-            Assert.Equal(true, testIsRobot);
-        }
-    }
+        //    Assert.Equal(true, testIsRobot);
+        //}
+    //}
 }

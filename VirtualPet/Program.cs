@@ -8,7 +8,10 @@ namespace VirtualPet
         {
             Pet myPet = new Pet();
             Shelter myShelter = new Shelter();
+            Organic myOrganic = new Organic();
+            Robot myRobot = new Robot();
             // Remove boolean and create two separate constrictors for robot and organic. 
+
             //Robot robotPet = new Robot();
             //{
             //    PetNumber = 
@@ -29,7 +32,8 @@ namespace VirtualPet
                 Console.WriteLine("3. Play with Pet");
                 Console.WriteLine("4. See the Vet");   // see doctor
                 Console.WriteLine("5. Exit Game");
-                Console.WriteLine("6. Create Pet");
+                Console.WriteLine("6. Create Robot");
+                Console.WriteLine("7. Create Organic Pet");
 
                 string menuChoice = Console.ReadLine();
 
@@ -38,30 +42,49 @@ namespace VirtualPet
                 int petBoredom = myPet.GetBoredom();
                 int petHealth = myPet.GetHealth();
                 int petHunger = myPet.GetHunger();
-                int robotPerformance = myPet.GetPerformance();
+                int robotPerformance = myRobot.GetPerformance();
+                int robotOil = myRobot.GetOil();
                 
 
                 switch (menuChoice)
                 {
                     case "1":
-                        myPet.IsRobot = true;
-                        if (false)
+
+
+                        foreach (Pet pet in myShelter.ListofPets)
                         {
-                        Console.WriteLine(myPet.Name);
-                        Console.WriteLine(myPet.Species);
-                        Console.WriteLine(myPet.Name + "'s boredom level is: " + petBoredom);         
-                        Console.WriteLine(myPet.Name + "'s health level is: " + petHealth);
-                        Console.WriteLine(myPet.Name + "'s hunger level is: " + petHunger);
-                           
+                            Console.WriteLine("The current Boredom level of " + pet.Name + " is " + petBoredom);
+
+                            if(myPet == myOrganic)
+                            {
+                                Console.WriteLine("The Current Health Level of " + pet.Name + " is " + petHealth);
+                            }
+                            else if (myPet == myRobot)
+                            {
+                                Console.WriteLine("The Current Oil Level of " + pet.Name + " is " + robotOil);
+                            }
                         }
-                        else if (true)
-                        {
-                            Console.WriteLine(myPet.Name);
-                            Console.WriteLine(myPet.Species);
-                            Console.WriteLine(myPet.Name + "'s boredom level is: " + petBoredom);
-                            Console.WriteLine(myPet.Name + "'s health level is: " + Robot.Performance);
-                            Console.WriteLine(myPet.Name + "'s hunger level is: " + Robot.Oil);
-                        }
+
+                            break;
+
+                        //myPet.IsRobot = true;
+                        //if (false)
+                        //{
+                        //    Console.WriteLine(myPet.Name);
+                        //    Console.WriteLine(myPet.Species);
+                        //    Console.WriteLine(myPet.Name + "'s boredom level is: " + petBoredom);
+                        //    Console.WriteLine(myPet.Name + "'s health level is: " + petHealth);
+                        //    Console.WriteLine(myPet.Name + "'s hunger level is: " + petHunger);
+
+                        //}
+                        //else if (true)
+                        //{
+                        //    Console.WriteLine(myPet.Name);
+                        //    Console.WriteLine(myPet.Species);
+                        //    Console.WriteLine(myPet.Name + "'s boredom level is: " + petBoredom);
+                        //    Console.WriteLine(myPet.Name + "'s health level is: " + Robot.Performance);
+                        //    Console.WriteLine(myPet.Name + "'s hunger level is: " + Robot.Oil);
+                        //}
 
 
                         break;
@@ -82,19 +105,26 @@ namespace VirtualPet
                         keepPlaying = false;
                         break;
                     case "6":
-                        myShelter.AddPet(myPet);
+                        myShelter.AddPet(myRobot);
 
-                        Console.WriteLine("Is your pet a robot? true or false");
-                        myPet.SetIsRobot(Convert.ToBoolean(Console.ReadLine()));
+                        //Console.WriteLine("Is your pet a robot? true or false");
+                        //myPet.SetIsRobot(Convert.ToBoolean(Console.ReadLine()));
 
                         Console.WriteLine("What Species is Your Pet? ");
-                        myPet.SetSpecies(Console.ReadLine());
+                        myRobot.SetSpecies(Console.ReadLine());
 
                         Console.WriteLine("Please Enter the Name of Your Pet: ");
-                        myPet.SetName(Console.ReadLine());
-                       
+                        myRobot.SetName(Console.ReadLine());
                         break;
+                    case "7":
+                        myShelter.AddPet(myOrganic);
 
+                        Console.WriteLine("What Species is Your Pet? ");
+                        myOrganic.SetSpecies(Console.ReadLine());
+
+                        Console.WriteLine("Please Enter the Name of Your Pet: ");
+                        myOrganic.SetName(Console.ReadLine());
+                        break;
                     default:
                         Console.WriteLine("Invalid Entry");
                         break;
