@@ -28,9 +28,9 @@ namespace VirtualPet
 
                 
                 Console.WriteLine("1. Check On Pets"); // Outputs data of your pet
-                Console.WriteLine("2. Feed Pet");       
-                Console.WriteLine("3. Play with Pet");
-                Console.WriteLine("4. See the Vet");   // see doctor
+                Console.WriteLine("2. Feed or Oil Pets");       
+                Console.WriteLine("3. Play with Pets");
+                Console.WriteLine("4. See the Vet or Mechanic");   // see doctor
                 Console.WriteLine("5. Exit Game");
                 Console.WriteLine("6. Create Robot");
                 Console.WriteLine("7. Create Organic Pet");
@@ -53,52 +53,58 @@ namespace VirtualPet
 
                         foreach (Pet pet in myShelter.ListofPets)
                         {
-                            Console.WriteLine("The current Boredom level of " + pet.Name + " is " + petBoredom);
+                            Console.WriteLine("The Current Boredom level of " + pet.Name + " is " + petBoredom);
 
-                            if(myPet == myOrganic)
+                            if (pet == myOrganic)
                             {
                                 Console.WriteLine("The Current Health Level of " + pet.Name + " is " + petHealth);
+                                Console.WriteLine("The Current Hunger Level of " + pet.Name + " is " + petHunger);
                             }
-                            else if (myPet == myRobot)
+                            else if (pet == myRobot)
                             {
                                 Console.WriteLine("The Current Oil Level of " + pet.Name + " is " + robotOil);
+                                Console.WriteLine("The Current Performance Level of " + pet.Name + " is " + robotPerformance);
                             }
                         }
 
-                            break;
-
-                        //myPet.IsRobot = true;
-                        //if (false)
-                        //{
-                        //    Console.WriteLine(myPet.Name);
-                        //    Console.WriteLine(myPet.Species);
-                        //    Console.WriteLine(myPet.Name + "'s boredom level is: " + petBoredom);
-                        //    Console.WriteLine(myPet.Name + "'s health level is: " + petHealth);
-                        //    Console.WriteLine(myPet.Name + "'s hunger level is: " + petHunger);
-
-                        //}
-                        //else if (true)
-                        //{
-                        //    Console.WriteLine(myPet.Name);
-                        //    Console.WriteLine(myPet.Species);
-                        //    Console.WriteLine(myPet.Name + "'s boredom level is: " + petBoredom);
-                        //    Console.WriteLine(myPet.Name + "'s health level is: " + Robot.Performance);
-                        //    Console.WriteLine(myPet.Name + "'s hunger level is: " + Robot.Oil);
-                        //}
-
-
                         break;
+                                                  
                     case "2":
-                        //pet.Feed();
-                        //Console.WriteLine("You Fed " + pet.Name);
+                        foreach (Pet pet in myShelter.ListofPets) 
+                        {
+                            if (pet == myOrganic)
+                            {
+                                myPet.Feed();
+                                Console.WriteLine("You Fed " + pet.Name);
+                            }
+                            else if (pet == myRobot)
+                            {
+                                myRobot.GetOil();
+                                Console.WriteLine("You gave oil to " + pet.Name);
+                            }
+                        }
                         break;
                     case "3":
-                        //pet.Play();
-                        //Console.WriteLine("You played with " + pet.Name);
+                        foreach (Pet pet in myShelter.ListofPets)
+                        {
+                        pet.Play();
+                        Console.WriteLine("You played with " + pet.Name);
+                        }
                         break;
                     case "4":
-                        //pet.SeeDoctor();
-                        //Console.WriteLine("You took " + pet.Name + " to the vet!");
+                        foreach (Pet pet in myShelter.ListofPets)
+                        {
+                            if(pet == myOrganic)
+                            {
+                            pet.SeeDoctor();
+                            Console.WriteLine("You took " + pet.Name + " to the vet!");
+                            }
+                            else if(pet == myRobot)
+                            {
+                            myRobot.SeeMechanic();
+                                Console.WriteLine("You took " + pet.Name + " to the mechanic!");
+                            }
+                        }
                         break;
                     case "5":
                         Console.WriteLine("Thank's for Playing!");

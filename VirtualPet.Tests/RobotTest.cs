@@ -116,6 +116,12 @@ namespace VirtualPet.Tests
 
             Assert.Equal(25, testRobot.GetPerformance());
         }
+        [Fact]
+        public void SeeMechanic_Should_Increase_Performance_By_30()
+        {
+            testRobot.SeeMechanic();
 
+            Assert.Equal(60, testRobot.GetPerformance());
+        }
     }
 }

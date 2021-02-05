@@ -48,6 +48,9 @@ namespace VirtualPet
             Boredom += 5;
             Performance -= 5;
         }
-
+        public void SeeMechanic()
+        {
+            Performance += 30;
+        }
     }
 }
