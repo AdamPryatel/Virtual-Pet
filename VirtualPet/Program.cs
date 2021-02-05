@@ -10,34 +10,27 @@ namespace VirtualPet
             Shelter myShelter = new Shelter();
             Organic myOrganic = new Organic();
             Robot myRobot = new Robot();
-            // Remove boolean and create two separate constrictors for robot and organic. 
-
-            //Robot robotPet = new Robot();
-            //{
-            //    PetNumber = 
-            //}
+           
 
             Console.WriteLine("Hello! Welcome to Virtual Pet Shelter");
 
-            //Console.WriteLine("Are you here adopt a );
-
-
+           
             bool keepPlaying = true;
             while(keepPlaying)
             { 
 
                 
-                Console.WriteLine("1. Check On Pets"); // Outputs data of your pet
-                Console.WriteLine("2. Feed or Oil Pets");       
-                Console.WriteLine("3. Play with Pets");
-                Console.WriteLine("4. See the Vet or Mechanic");   // see doctor
-                Console.WriteLine("5. Exit Game");
-                Console.WriteLine("6. Create Robot");
-                Console.WriteLine("7. Create Organic Pet");
-                Console.WriteLine("8. Select a Pet to Feed or Oil.");
-                Console.WriteLine("9. Select a Pet to Play with.");
-                Console.WriteLine("10. Select a Pet to take to the vet or mechanic.");
-                Console.WriteLine("11. Select a pet to adopt.");
+                Console.WriteLine("1. Create Robot Pet");
+                Console.WriteLine("2. Create Organic Pet");
+                Console.WriteLine("3. Check On All Pets"); 
+                Console.WriteLine("4. Feed or Oil All Pets");       
+                Console.WriteLine("5. Select a Pet to Feed or Oil.");
+                Console.WriteLine("6. Play with All Pets");
+                Console.WriteLine("7. Select a Pet to Play with.");
+                Console.WriteLine("8. Take All Pets to the Vet or Mechanic");  
+                Console.WriteLine("9. Select a Pet to take to the Vet or Mechanic.");
+                Console.WriteLine("10. Select a Pet to be Adopted from the Shelter.");
+                Console.WriteLine("11. Exit Game");
 
                 string menuChoice = Console.ReadLine();
 
@@ -53,8 +46,24 @@ namespace VirtualPet
                 switch (menuChoice)
                 {
                     case "1":
+                        myShelter.AddPet(myRobot);
 
+                        Console.WriteLine("What Species is Your Robot Pet? ");
+                        myRobot.SetSpecies(Console.ReadLine());
 
+                        Console.WriteLine("Please Enter the Name of Your Robot " + myRobot.Species + ": ");
+                        myRobot.SetName(Console.ReadLine());
+                        break;
+                    case "2":
+                        myShelter.AddPet(myOrganic);
+
+                        Console.WriteLine("What Species is Your Organic Pet? ");
+                        myOrganic.SetSpecies(Console.ReadLine());
+
+                        Console.WriteLine("Please Enter the Name of Your Organic " + myOrganic.Species + ": ");
+                        myOrganic.SetName(Console.ReadLine());
+                        break;
+                    case "3":
                         foreach (Pet pet in myShelter.ListofPets)
                         {
                             Console.WriteLine("The Current Boredom level of " + pet.Name + " is " + petBoredom);
@@ -70,10 +79,8 @@ namespace VirtualPet
                                 Console.WriteLine("The Current Performance Level of " + pet.Name + " is " + robotPerformance);
                             }
                         }
-
                         break;
-                                                  
-                    case "2":
+                    case "4":
                         foreach (Pet pet in myShelter.ListofPets) 
                         {
                             if (pet == myOrganic)
@@ -88,14 +95,32 @@ namespace VirtualPet
                             }
                         }
                         break;
-                    case "3":
+                    case "5":
+                        myPet = myShelter.SelectPet();
+                        if (myPet == myOrganic)
+                        {
+                            myPet.Feed();
+                            Console.WriteLine("You Fed " + myPet.Name);
+                        }
+                        else if (myPet == myRobot)
+                        {
+                            myRobot.GetOil();
+                            Console.WriteLine("You gave oil to " + myPet.Name);
+                        }
+                        break;
+                    case "6":
                         foreach (Pet pet in myShelter.ListofPets)
                         {
                         pet.Play();
                         Console.WriteLine("You played with " + pet.Name);
                         }
                         break;
-                    case "4":
+                    case "7":
+                        myPet = myShelter.SelectPet();
+                        myPet.Play();
+                        Console.WriteLine("You played with " + myPet.Name);
+                       break;
+                    case "8":
                         foreach (Pet pet in myShelter.ListofPets)
                         {
                             if(pet == myOrganic)
@@ -110,55 +135,7 @@ namespace VirtualPet
                             }
                         }
                         break;
-                    case "5":
-                        Console.WriteLine("Thank's for Playing!");
-                        keepPlaying = false;
-                        break;
-                    case "6":
-                        myShelter.AddPet(myRobot);
-
-                        //Console.WriteLine("Is your pet a robot? true or false");
-                        //myPet.SetIsRobot(Convert.ToBoolean(Console.ReadLine()));
-
-                        Console.WriteLine("What Species is Your Pet? ");
-                        myRobot.SetSpecies(Console.ReadLine());
-
-                        Console.WriteLine("Please Enter the Name of Your Pet: ");
-                        myRobot.SetName(Console.ReadLine());
-                        break;
-                    case "7":
-                        myShelter.AddPet(myOrganic);
-
-                        Console.WriteLine("What Species is Your Pet? ");
-                        myOrganic.SetSpecies(Console.ReadLine());
-
-                        Console.WriteLine("Please Enter the Name of Your Pet: ");
-                        myOrganic.SetName(Console.ReadLine());
-                        break;
-
-                    case "8":
-                        myPet = myShelter.SelectPet();
-                        if (myPet == myOrganic)
-                        {
-                            myPet.Feed();
-                            Console.WriteLine("You Fed " + myPet.Name);
-                        }
-                        else if (myPet == myRobot)
-                        {
-                            myRobot.GetOil();
-                            Console.WriteLine("You gave oil to " + myPet.Name);
-                        }
-
-                        break;
-
-
                     case "9":
-                        myPet = myShelter.SelectPet();
-                        myPet.Play();
-                        Console.WriteLine("You played with " + myPet.Name);
-                       break;
-
-                    case "10":
                         myPet = myShelter.SelectPet();
                         if (myPet == myOrganic)
                         {
@@ -170,22 +147,22 @@ namespace VirtualPet
                             myRobot.SeeMechanic();
                             Console.WriteLine("You took " + myPet.Name + " to the mechanic!");
                         }
-
                         break;
-                    case "11":
+                    case "10":
                         myShelter.AdoptPet();
                         Console.WriteLine("That pet has been adopted!");
                         break;
-
-
-
+                    case "11":
+                        Console.WriteLine("Thank's for Playing!");
+                        keepPlaying = false;
+                        break;
                     default:
                         Console.WriteLine("Invalid Entry");
                         break;
 
                 }
 
-                //pet.Tick();
+                myPet.Tick();
 
                 Console.WriteLine("Press Any Key to Continue");
                 Console.ReadKey();

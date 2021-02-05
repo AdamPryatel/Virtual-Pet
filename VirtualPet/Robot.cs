@@ -13,8 +13,7 @@ namespace VirtualPet
         {
 
         }
-        
-        
+       
         public int GetOil()
         {
             return Oil;
@@ -23,25 +22,20 @@ namespace VirtualPet
         {
             Oil += 40;
         }
-
         public int GetPerformance()
         {
             return Performance;
         }
-
         public void Maintenance()
         {
             Performance += 30;
         }
-
         public override void Play()
         {
             Oil -= 10;
             Boredom -= 20;
             Performance -= 10;
         }
-
-
         public override void Tick()
         {
             Oil -= 5;
