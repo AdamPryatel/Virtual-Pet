@@ -34,6 +34,10 @@ namespace VirtualPet
                 Console.WriteLine("5. Exit Game");
                 Console.WriteLine("6. Create Robot");
                 Console.WriteLine("7. Create Organic Pet");
+                Console.WriteLine("8. Select a Pet to Feed or Oil.");
+                Console.WriteLine("9. Select a Pet to Play with.");
+                Console.WriteLine("10. Select a Pet to take to the vet or mechanic.");
+                Console.WriteLine("11. Select a pet to adopt.");
 
                 string menuChoice = Console.ReadLine();
 
@@ -131,6 +135,50 @@ namespace VirtualPet
                         Console.WriteLine("Please Enter the Name of Your Pet: ");
                         myOrganic.SetName(Console.ReadLine());
                         break;
+
+                    case "8":
+                        myPet = myShelter.SelectPet();
+                        if (myPet == myOrganic)
+                        {
+                            myPet.Feed();
+                            Console.WriteLine("You Fed " + myPet.Name);
+                        }
+                        else if (myPet == myRobot)
+                        {
+                            myRobot.GetOil();
+                            Console.WriteLine("You gave oil to " + myPet.Name);
+                        }
+
+                        break;
+
+
+                    case "9":
+                        myPet = myShelter.SelectPet();
+                        myPet.Play();
+                        Console.WriteLine("You played with " + myPet.Name);
+                       break;
+
+                    case "10":
+                        myPet = myShelter.SelectPet();
+                        if (myPet == myOrganic)
+                        {
+                            myPet.SeeDoctor();
+                            Console.WriteLine("You took " + myPet.Name + " to the vet!");
+                        }
+                        else if (myPet == myRobot)
+                        {
+                            myRobot.SeeMechanic();
+                            Console.WriteLine("You took " + myPet.Name + " to the mechanic!");
+                        }
+
+                        break;
+                    case "11":
+                        myShelter.AdoptPet();
+                        Console.WriteLine("That pet has been adopted!");
+                        break;
+
+
+
                     default:
                         Console.WriteLine("Invalid Entry");
                         break;
